@@ -1,0 +1,2 @@
+[app]
+3.137.178.58 ansible_ssh_private_key_file=/home/ubuntu/eks-iac-key.pem ansible_user=ubuntu
