@@ -50,7 +50,7 @@ Before you begin, ensure you have the following:
 
 ## CI/CD with GitHub Actions
 
-1. Create a GitHub Actions workflow file (`.github/workflows/deploy.yml`) to automate the deployment process.
+1. Create a GitHub Actions workflow file (`.github/workflows/main.yml`) to automate the deployment process.
 2. The workflow should include steps to:
    - Checkout the code.
    - Set up Node.js.
