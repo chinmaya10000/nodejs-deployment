@@ -28,20 +28,20 @@
 
 - name: Install dependencies
   npm:
-    path: /home/ubuntu/app
+    path: /home/ubuntu/app/app
     state: present
   tags: app
 
 - name: Start the application
-  shell: "nohup node /home/ubuntu/app/index.js &"
+  shell: "nohup node /home/ubuntu/app/app/index.js &"
   args:
-    chdir: /home/ubuntu/app
+    chdir: /home/ubuntu/app/app
   async: 1
   poll: 0
   tags: app
 
 - name: Ensure application is running
-  command: "pgrep -f 'node /home/ubuntu/app/index.js'"
+  command: "pgrep -f 'node /home/ubuntu/app/app/index.js'"
   register: app_process
   retries: 5
   delay: 2
