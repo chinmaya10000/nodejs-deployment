@@ -15,7 +15,7 @@
   git:
     repo: 'https://github.com/chinmaya10000/nodejs-deployment.git'
     dest: /home/ubuntu/app
-    version: master
+    version: main
 
 - name: Install dependencies
   npm:
