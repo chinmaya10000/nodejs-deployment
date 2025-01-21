@@ -2,6 +2,7 @@
   apt:
     update_cache: yes
     upgrade: yes
+  tags: app
 
 - name: Install Node.js and npm
   apt:
@@ -10,21 +11,39 @@
   with_items:
     - nodejs
     - npm
+  tags: app
+
+- name: Ensure git is installed
+  apt:
+    name: git
+    state: present
+  tags: app
 
 - name: Clone repository
   git:
-    repo: 'https://github.com/chinmaya10000/nodejs-deployment.git'
+    repo: 'https://github.com/username/repository.git'
     dest: /home/ubuntu/app
-    version: main
+    version: master
+  tags: app
 
 - name: Install dependencies
   npm:
     path: /home/ubuntu/app
     state: present
+  tags: app
 
 - name: Start the application
-  command: "node /home/ubuntu/app/index.js"
+  shell: "nohup node /home/ubuntu/app/index.js &"
   args:
     chdir: /home/ubuntu/app
   async: 1
   poll: 0
+  tags: app
+
+- name: Ensure application is running
+  command: "pgrep -f 'node /home/ubuntu/app/index.js'"
+  register: app_process
+  retries: 5
+  delay: 2
+  until: app_process.rc == 0
+  tags: app
