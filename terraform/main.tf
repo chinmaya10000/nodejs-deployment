@@ -8,7 +8,6 @@ variable "avail_zone" {}
 variable "my_ip" {}
 variable "env_prefix" {}
 variable "instance_type" {}
-variable "public_key_location" {}
 
 resource "aws_vpc" "myapp-vpc" {
   cidr_block = var.vpc_cidr_block
