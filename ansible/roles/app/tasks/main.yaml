@@ -21,7 +21,7 @@
 
 - name: Clone repository
   git:
-    repo: 'https://github.com/username/repository.git'
+    repo: 'https://github.com/chinmaya10000/nodejs-deployment.git'
     dest: /home/ubuntu/app
     version: main
   tags: app
