@@ -23,7 +23,7 @@
   git:
     repo: 'https://github.com/username/repository.git'
     dest: /home/ubuntu/app
-    version: master
+    version: main
   tags: app
 
 - name: Install dependencies
